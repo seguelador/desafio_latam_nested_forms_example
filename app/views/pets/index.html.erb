@@ -1,0 +1,20 @@
+<h1>Mis Mascotas</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Raza</th>
+      <th>Mejor Amigo</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @pets.each do |pet| %>
+    <tr>
+      <td><%= pet.name %></td>
+      <td><%= pet.breed %></td>
+      <td><%= pet.person.first_name %></td>
+    </tr>
+  <% end %>
+  </tbody>
+  
+</table>

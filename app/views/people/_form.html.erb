@@ -1,0 +1,65 @@
+<%= form_with(model: person, local: true) do |form| %>
+  <% if person.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(person.errors.count, "error") %> prohibited this person from being saved:</h2>
+
+      <ul>
+      <% person.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+  </div>
+
+  <h2>Pets:</h2>
+  <div class="item">
+    <h3>Mascota 1 </h3>
+    <div class="field">
+      <label for="person_pets_attributes_0_name">Name</label>
+      <input type="text" name="person[pets_attributes][0][name]" id="person_pets_attributes_0_name">
+    </div>
+    <div class="field">
+      <label for="person_pets_attributes_0_breed">Breed</label>
+      <input type="text" name="person[pets_attributes][0][breed]" id="person_pets_attributes_0_breed">
+    </div>
+  </div>
+  <div class="item">
+    <h3>Mascota 2 </h3>
+    <div class="field">
+      <label for="person_pets_attributes_1_name">Name</label>
+      <input type="text" name="person[pets_attributes][1][name]" id="person_pets_attributes_1_name">
+    </div>
+    <div class="field">
+      <label for="person_pets_attributes_1_breed">Breed</label>
+      <input type="text" name="person[pets_attributes][1][breed]" id="person_pets_attributes_1_breed">
+    </div>
+  </div>
+  
+  <!--<%#= form.fields_for :pets do |pet| %>
+    <div class="field">
+    <%#= pet.label :name %>
+    <%#= pet.text_field :name %>
+    </div>
+
+    <div class="field">
+    <%#= pet.label :breed %>
+    <%#= pet.text_field :breed %>
+    </div>
+  <%# end %>-->
+
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
